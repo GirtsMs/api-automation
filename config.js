@@ -14,7 +14,7 @@ export const config = {
         status: 'active'
     },
     BOOKS_DEV: {
-        host: 'https://localhost:1010'
+        host: 'https://localhost:1050'
     },
     BOOKS_STG: {
         host: 'https://localhost:2020'
