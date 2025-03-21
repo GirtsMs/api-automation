@@ -1,0 +1,21 @@
+name: "Run API tests"
+description: "Compiste action to exute API tests"
+inputs: 
+  environment:
+    desctription: 'Environment where to execute tests against'
+    requried: true
+  test-suite:
+    desctription: 'Testing suite which needs to be executed'
+    default: 'BOOKS'
+runs:
+  using: composite
+  steps:
+    - name: Print step name
+      run: echo "Testing ${{ inputs.test-suite}} test set on ${{ inputs.environment}} has started.."
+      shell: cmd
+    - name: Install all depentdencies
+      run: npm install
+      shell: cmd
+    - name: Run API tests
+      run: npm run ${{ inputs.test-suite}} ${{ inputs.test-suite}}_${{ inputs.environment}}
+      shell: cmd
